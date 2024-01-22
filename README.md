@@ -16,44 +16,13 @@ https://shi-works.github.io/akita-earthquake-tsunami-damage-map-on-maplibre-gl-j
   <figcaption>浸水開始時間</figcaption>
 </figure>
 
-## 震度分布図及び液状化危険度分布図（PMTiles形式）
-- 概要：秋田県のWebサイトにてオープンデータとして公開されている、[秋田県地震被害想定調査](https://www.pref.akita.lg.jp/pages/archive/7470)の[震度分布図及び液状化危険度分布図（シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53937)を[PMTiles](https://github.com/protomaps/PMTiles)形式に変換したデータです。
-- 震度分布図及び液状化危険度分布図（PMTiles形式）は[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)で公開しています。
-- 1つのPMTilesには、1つの地震パターンのデータが含まれます。
-- 例：01.pmtilesが1. 能代断層帯です。
-- 1つのPMTilesには、sindo（計測震度）やekijoka（液状化危険度）等の属性が含まれます。
-- 属性の詳細については、[シェープファイル説明資料](https://www.pref.akita.lg.jp/pages/archive/53937)を参照してください。
-1. [01.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/01.pmtiles)
-2. [02.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/02.pmtiles)
-3. [03.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/03.pmtiles)
-4. [04.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/04.pmtiles)
-5. [05.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/05.pmtiles)
-6. [06.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/06.pmtiles)
-7. [07.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/07.pmtiles)
-8. [08.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/08.pmtiles)
-9. [09.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/09.pmtiles)
-10. [10.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/10.pmtiles)
-11. [11.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/11.pmtiles)
-12. [12.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/12.pmtiles)
-13. [13.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/13.pmtiles)
-14. [14.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/14.pmtiles)
-15. [15.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/15.pmtiles)
-16. [16.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/16.pmtiles)
-17. [17.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/17.pmtiles)
-18. [18.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/18.pmtiles)
-19. [19.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/19.pmtiles)
-20. [20.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/20.pmtiles)
-21. [21.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/21.pmtiles)
-22. [22.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/22.pmtiles)
-23. [23.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/23.pmtiles)
-24. [24.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/24.pmtiles)
-25. [25.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/25.pmtiles)
-26. [26.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/26.pmtiles)
-27. [27.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/27.pmtiles)
-28. [akita-earthquake-data-8layer.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/akita-earthquake-data-8layer.pmtiles) (148MB)※パターン1～8を統合したものです。
-29. [akita-earthquake-data-27layer.pmtiles](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/akita-earthquake-data-27layer.pmtiles) (325MB)※パターン1～27を統合したものです。
-
-- 原初データ出典：[震度分布図及び液状化危険度分布図（シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53937)
+## 最大浸水深及び浸水開始時間（PMTiles形式）
+- 概要：秋田県のWebサイトにてオープンデータとして公開されている、[津波浸水想定データ（最大浸水深及び浸水開始時間、シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53932)を[PMTiles](https://github.com/protomaps/PMTiles)形式に変換したデータです。
+- 最大浸水深及び浸水開始時間のPMTiles形式のデータは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)で公開しています。
+- 津波浸水想定の詳細については、[津波浸水想定について（解説）](https://www.pref.akita.lg.jp/pages/archive/53908)を参照してください。
+- [最大浸水深](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/maximum_depth.pmtiles)
+- [津波浸水想定](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/flooding_start_time.pmtiles)
+- 原初データ出典：[津波浸水想定データ（最大浸水深及び浸水開始時間、シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53932)
   - ライセンス：[秋田県オープンデータ利用規約（CC BYに従うことでも利用可能）](https://www.pref.akita.lg.jp/pages/archive/36756)
 
 ## PMTiles形式のデータ作成方法

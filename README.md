@@ -26,37 +26,7 @@ https://shi-works.github.io/akita-earthquake-tsunami-damage-map-on-maplibre-gl-j
   - ライセンス：[秋田県オープンデータ利用規約（CC BYに従うことでも利用可能）](https://www.pref.akita.lg.jp/pages/archive/36756)
 
 ## PMTiles形式のデータ作成方法
-- 作成時に対象としたデータは下記の[27パターン](https://www.pref.akita.lg.jp/pages/archive/53937)です。
-1. 能代断層帯
-2. 花輪東断層帯
-3. 男鹿地震
-4. 天長地震
-5. 秋田仙北地震震源北方
-6. 北由利断層
-7. 秋田仙北地震
-8. 横手盆地東縁断層帯北部
-9. 横手盆地東縁断層帯南部
-10. 真昼山地東縁断層帯北部
-11. 真昼山地東縁断層帯南部
-12. 象潟地震
-13. 横手盆地_真昼山地連動
-14. 秋田仙北地震震源北方_秋田仙北地震連動
-15. 天長地震_北由利断層連動
-16. 津軽山地西縁断層帯南部
-17. 折爪断層
-18. 雫石盆地西縁断層帯
-19. 北上低地西縁断層帯
-20. 庄内平野東縁断層帯
-21. 新庄盆地断層帯
-22. 海域A
-23. 海域B
-24. 海域C
-25. 海域A＋B
-26. 海域B＋C
-27. 海域A＋B＋C
-
-- 上記の27パターンのシェープファイルをPython（[GDAL/OGR](https://live.osgeo.org/ja/overview/gdal_overview.html)）でFlatGeobuf形式のデータに変換し、リネーム後、下記の[tippecanoe](https://github.com/felt/tippecanoe)のコマンドを実行して作成しています。
-- 27パターンのFlatGeobuf形式のデータ（リネーム前）は[こちらからダウンロード（7zip形式）](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/fgb.7z)できます。
+- 最大浸水深及と浸水開始時間のシェープファイルを[QGIS]（https://qgis.org/ja/site/）でFlatGeobuf形式のデータに変換し、下記の[tippecanoe](https://github.com/felt/tippecanoe)のコマンドを実行して作成しています。
 - tippecanoeのバージョンはv2.23.0です。
 - tippecanoeのオプションは以下のとおりです。
 

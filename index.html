@@ -1,0 +1,275 @@
+<html>
+
+<head>
+    <title>秋田県津波浸水想定マップ（最大浸水深及び浸水開始時間）</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js'></script>
+    <link href='https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/pmtiles@2.11.0/dist/index.js"></script>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .legend-depth {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            bottom: 50px;
+            right: 10px;
+            z-index: 1;
+            line-height: 16px;
+            height: 180px;
+        }
+
+        .legend-depth h4 {
+            margin: 0 0 10px;
+        }
+
+        .legend-depth div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 15px;
+            margin-right: 10px;
+            width: 15px;
+            color: black;
+        }
+
+        .legend-time {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.10);
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            padding: 10px;
+            position: absolute;
+            bottom: 50px;
+            right: 10px;
+            z-index: 1;
+            line-height: 16px;
+            height: 180px;
+        }
+
+        .legend-time h4 {
+            margin: 0 0 10px;
+        }
+
+        .legend-time div span {
+            border-radius: 50%;
+            display: inline-block;
+            height: 15px;
+            margin-right: 10px;
+            width: 15px;
+            color: black;
+        }
+
+        .squre {
+            width: 15px;
+            height: 15px;
+        }
+
+        #info01 {
+            padding: 6px 8px;
+            font: 12px/14px Arial, Helvetica, sans-serif;
+            color: navy;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            width: fit-content;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1;
+        }
+
+        .yubi {
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .radio-button-container {
+            display: flex;
+            justify-content: start;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="info01">
+        <details>
+            <summary class="yubi">
+                <strong>レイヤー</strong>
+            </summary>
+            <fieldset>
+                <div class="radio-button-container">
+                    <div class="column">
+                        <div>
+                            <input type="radio" id="depth" name="layer" value="depth" checked>
+                            <label for="depth">最大浸水深</label>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div>
+                            <input type="radio" id="time" name="layer" value="time">
+                            <label for="time">浸水開始時間</label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </details>
+    </div>
+    <div id='legend-depth' style="display:block;" class='legend-depth'>
+        <h4>最大浸水深</h4>
+        <div class="squre" style='background-color: #DC7ABC;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">20.0m以上</span><br>
+        <div class="squre" style='background-color: #F285C9;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">10.0～20.0m</span><br>
+        <div class="squre" style='background-color: #FF9191;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">5.0～10.0m</span><br>
+        <div class="squre" style='background-color: #FFB7B7;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">3.0～5.0m</span><br>
+        <div class="squre" style='background-color: #FFD8C0;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">1.0～3.0m</span><br>
+        <div class="squre" style='background-color: #F8E1A6;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">0.5～1.0m</span><br>
+        <div class="squre" style='background-color: #F7F5A9;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">0.3～0.5m</span><br>
+        <div class="squre" style='background-color: #FFFFB3;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">0.3m未満</span>
+    </div>
+    <div id='legend-time' style="display:none;" class='legend-time'>
+        <h4>浸水開始時間</h4>
+        <div class="squre" style='background-color: #8400A7;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">5分未満</span><br>
+        <div class="squre" style='background-color: #A70084;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">5～10分</span><br>
+        <div class="squre" style='background-color: #E50000;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">10～20分</span><br>
+        <div class="squre" style='background-color: #E59800;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">20～30分</span><br>
+        <div class="squre" style='background-color: #FFFF00;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">30～60分</span><br>
+        <div class="squre" style='background-color: #AAFF00;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">60～120分</span><br>
+        <div class="squre" style='background-color: #00FFC5;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">120～180分</span><br>
+        <div class="squre" style='background-color: #72DFFF;display: inline-block;'></div>
+        <span style="display: inline-block; margin-left: 5px;">180分以上</span>
+    </div>
+    <script type="module">
+        // Terrain-RGB形式への変換モジュール
+        import { makeNumPngProtocol } from './numPngProtocol.js'
+        maplibregl.addProtocol('numpng', makeNumPngProtocol());
+
+        // addProtocolの設定
+        let protocol = new pmtiles.Protocol();
+        maplibregl.addProtocol("pmtiles", protocol.tile);
+
+        // マップの初期化
+        const map = new maplibregl.Map({
+            container: 'map',
+            style: 'std.json',
+            center: [139.9747, 39.9723],
+            zoom: 11.01,
+            minZoom: 1,
+            maxZoom: 23,
+            pitch: 0,
+            maxPitch: 85,
+            bearing: 0,
+            hash: true,
+            attributionControl: false
+        });
+
+        // スケール表示
+        map.addControl(new maplibregl.ScaleControl({
+            maxWidth: 200,
+            unit: 'metric'
+        }));
+
+        // 3D地形コントロール
+        map.addControl(
+            new maplibregl.TerrainControl({
+                source: 'aist-dem',
+                exaggeration: 1 // 標高を強調する倍率
+            }), 'bottom-left'
+        );
+
+        // フルスクリーンモードのオンオフ
+        map.addControl(new maplibregl.FullscreenControl(), 'bottom-left');
+
+        // 現在位置表示
+        map.addControl(new maplibregl.GeolocateControl({
+            positionOptions: {
+                enableHighAccuracy: false
+            },
+            fitBoundsOptions: { maxZoom: 18 },
+            trackUserLocation: true,
+            showUserLocation: true
+        }), 'bottom-left');
+
+        // ズーム・回転
+        map.addControl(new maplibregl.NavigationControl(), 'bottom-left');
+
+        // Attributionを折りたたみ表示
+        map.addControl(new maplibregl.AttributionControl({
+            compact: true,
+            customAttribution: '（<a href="https://twitter.com/shi__works" target="_blank">Twitter</a> | <a href="https://github.com/shi-works/akita-earthquake-tsunami-damage-map-on-maplibre-gl-js" target="_blank">Github</a>）'
+        }));
+
+        map.on('load', function () {
+            // 産総研 シームレス標高タイルソース
+            map.addSource("aist-dem", {
+                type: 'raster-dem',
+                tiles: [
+                    'numpng://tiles.gsj.jp/tiles/elev/mixed/{z}/{y}/{x}.png',
+                ],
+                attribution: '<a href="https://tiles.gsj.jp/tiles/elev/tiles.html" target="_blank">産業技術総合研究所 シームレス標高タイル(統合DEM)</a>',
+                tileSize: 256
+            });
+
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // ラジオボタンの要素を取得
+            const radios = document.querySelectorAll('input[type=radio][name="layer"]');
+
+            // ラジオボタンの状態が変更されたときのイベントリスナーを設定
+            radios.forEach(radio => radio.addEventListener('change', function () {
+                // 各レイヤの要素を取得
+                let depthLayer = document.getElementById('legend-depth');
+                let timeLayer = document.getElementById('legend-time');
+
+                // 選択されたラジオボタンに応じてレイヤの表示を切り替える
+                if (this.value === 'depth') {
+                    map.setLayoutProperty('maximum-depth-fill', 'visibility', 'visible');
+                    map.setLayoutProperty('flooding-start-time-fill', 'visibility', 'none');
+                    depthLayer.style.display = 'block';
+                    timeLayer.style.display = 'none';
+                } else if (this.value === 'time') {
+                    map.setLayoutProperty('maximum-depth-fill', 'visibility', 'none');
+                    map.setLayoutProperty('flooding-start-time-fill', 'visibility', 'visible');
+                    depthLayer.style.display = 'none';
+                    timeLayer.style.display = 'block';
+                }
+            }));
+        });
+
+    </script>
+</body>
+
+</html>

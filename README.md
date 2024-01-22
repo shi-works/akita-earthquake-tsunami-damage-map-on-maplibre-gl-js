@@ -54,7 +54,7 @@ tippecanoe -o flooding_start_time.pmtiles -Z8 -z14 flooding_start_time.fgb -pf -
 - PMTilesは、[PMTiles Viewer](https://protomaps.github.io/PMTiles/)で閲覧することができます
 - 下記はPMTiles Viewerでパターン1を表示した例です。
 - url=部分のURLを別のデータのURLに書き換えると別のデータでも表示ができます。
-- https://protomaps.github.io/PMTiles/?url=https://xs489works.xsrv.jp/pmtiles-data/pref-akita/maximum_depth.pmtiles#map=8.09/39.765/140.561
+- https://protomaps.github.io/PMTiles/?url=https://xs489works.xsrv.jp/pmtiles-data/pref-akita/maximum_depth.pmtiles#map=10.97/39.9607/139.9954
 
 ## 背景地図及び地形データ
 - 国土地理院 最適化ベクトルタイル（PMTiles形式）

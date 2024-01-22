@@ -20,8 +20,8 @@ https://shi-works.github.io/akita-earthquake-tsunami-damage-map-on-maplibre-gl-j
 - 概要：秋田県のWebサイトにてオープンデータとして公開されている、[津波浸水想定データ（最大浸水深及び浸水開始時間、シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53932)を[PMTiles](https://github.com/protomaps/PMTiles)形式に変換したデータです。
 - 最大浸水深及び浸水開始時間のPMTiles形式のデータは[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.ja)で公開しています。
 - 津波浸水想定の詳細については、[津波浸水想定について（解説）](https://www.pref.akita.lg.jp/pages/archive/53908)を参照してください。
-- [最大浸水深](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/maximum_depth.pmtiles)
-- [津波浸水想定](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/flooding_start_time.pmtiles)
+- [最大浸水深データ（PMTiles）](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/maximum_depth.pmtiles)
+- [浸水開始時間データ（PMTiles）](https://xs489works.xsrv.jp/pmtiles-data/pref-akita/flooding_start_time.pmtiles)
 - 原初データ出典：[津波浸水想定データ（最大浸水深及び浸水開始時間、シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53932)
   - ライセンス：[秋田県オープンデータ利用規約（CC BYに従うことでも利用可能）](https://www.pref.akita.lg.jp/pages/archive/36756)
 

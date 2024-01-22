@@ -26,7 +26,7 @@ https://shi-works.github.io/akita-earthquake-tsunami-damage-map-on-maplibre-gl-j
   - ライセンス：[秋田県オープンデータ利用規約（CC BYに従うことでも利用可能）](https://www.pref.akita.lg.jp/pages/archive/36756)
 
 ## PMTiles形式のデータ作成方法
-- 最大浸水深及と浸水開始時間のシェープファイルを[QGIS]（https://qgis.org/ja/site/）でFlatGeobuf形式のデータに変換し、下記の[tippecanoe](https://github.com/felt/tippecanoe)のコマンドを実行して作成しています。
+- 最大浸水深及と浸水開始時間のシェープファイルを[QGIS](https://qgis.org/ja/site/)でFlatGeobuf形式のデータに変換し、下記の[tippecanoe](https://github.com/felt/tippecanoe)のコマンドを実行して作成しています。
 - tippecanoeのバージョンはv2.23.0です。
 - tippecanoeのオプションは以下のとおりです。
 

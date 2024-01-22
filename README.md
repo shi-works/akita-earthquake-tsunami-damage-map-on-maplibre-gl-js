@@ -1,20 +1,20 @@
-# MapLibre GL JSで秋田県地震被害想定マップ（震度分布図及び液状化危険度分布図）を表示するデモサイト
+# MapLibre GL JSで秋田県津波浸水想定マップ（最大浸水深及び浸水開始時間）を表示するデモサイト
 ## デモサイト
 > **重要:**
-> デモサイトでは、[秋田県地震被害想定調査報告書 概要版](https://www.pref.akita.lg.jp/uploads/public/archive_0000053945_00/%E6%A6%82%E8%A6%81%E7%89%88[%E5%8D%B0%E5%88%B7%E7%94%A8].pdf)の代表8パターン（パターン1、2、4、6、7、13、22、27）の地震による被害想定を表示しています。
-> 震度は、計測震度と[気象庁の震度階級表](https://www.data.jma.go.jp/eqev/data/kyoshin/kaisetsu/calc_sindo.html)をもとに表示しています。
+> デモサイトでは、秋田県のWebサイトにてオープンデータとして公開されている、[津波浸水想定データ（最大浸水深及び浸水開始時間）](https://www.pref.akita.lg.jp/pages/archive/53932)を表示しています。
 
-### 国土地理院 最適化ベクトルタイルと震度分布図・液状化危険度分布図の通常の重ね合わせ
-> **震度分布図・液状化危険度分布図の不透明度：60%**  
-https://shi-works.github.io/akita-earthquake-damage-map-on-maplibre-gl-js/index.html
+### 国土地理院 最適化ベクトルタイルと最大浸水深及び浸水開始時間を合成して重ね合わせ
+> **最大浸水深及び浸水開始時間の不透明度：100%**  
 
-![image](https://github.com/shi-works/akita-earthquake-damage-map-on-maplibre-gl-js/assets/71203808/6fe2b5f4-b823-4059-bf45-4f4f66a318b0)
+<figure>
+  <img src="https://github.com/shi-works/akita-earthquake-tsunami-damage-map-on-maplibre-gl-js/assets/71203808/736746f3-ab62-46d5-ab15-dba73946dd2b" alt="代替テキスト">
+  <figcaption>最大浸水深</figcaption>
+</figure>
 
-### 国土地理院 最適化ベクトルタイルと震度分布図・液状化危険度分布図を合成して重ね合わせ
-> **震度分布図・液状化危険度分布図の不透明度：100%**  
-https://shi-works.github.io/akita-earthquake-damage-map-on-maplibre-gl-js/index2.html
-
-![image](https://github.com/shi-works/akita-earthquake-damage-map-on-maplibre-gl-js/assets/71203808/78b06512-fc02-4661-987d-8b6ab23df562)
+<figure>
+  <img src="https://github.com/shi-works/akita-earthquake-tsunami-damage-map-on-maplibre-gl-js/assets/71203808/50d85dd5-9456-4474-acb6-2f640ce0f77d" alt="代替テキスト">
+  <figcaption>浸水開始時間</figcaption>
+</figure>
 
 ## 震度分布図及び液状化危険度分布図（PMTiles形式）
 - 概要：秋田県のWebサイトにてオープンデータとして公開されている、[秋田県地震被害想定調査](https://www.pref.akita.lg.jp/pages/archive/7470)の[震度分布図及び液状化危険度分布図（シェープファイル）](https://www.pref.akita.lg.jp/pages/archive/53937)を[PMTiles](https://github.com/protomaps/PMTiles)形式に変換したデータです。
